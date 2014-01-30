@@ -41,16 +41,17 @@ void loop(){
   distanceIn = duration / 74 / 2;
   
   if (distanceCm <= 0){
-    Serial.println("Out of range");
+//    Serial.println("Out of range");
   }
   else {
-#ifndef INCHES
+    Serial.print(millis());  // Print the time in milliseconds since the program started
+#ifdef INCHES
+    Serial.print(',');
     Serial.print(distanceIn, 3);
-    Serial.print("in, ");
 #endif
+    Serial.print(',');
     Serial.print(distanceCm, 3);
-    Serial.print("cm");
     Serial.println();
   }
-  delay(200);
+  delay(20);
 }
